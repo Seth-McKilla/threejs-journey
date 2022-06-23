@@ -8,6 +8,7 @@ import GUI from "lil-gui";
  * Debug
  */
 const gui = new GUI();
+gui.hide();
 
 const params = {
   spin: () => {
