@@ -9,6 +9,15 @@ import GUI from "lil-gui";
  */
 const gui = new GUI();
 
+const params = {
+  spin: () => {
+    gsap.to(mesh.rotation, {
+      y: mesh.rotation.y + 10,
+      duration: 1,
+    });
+  },
+};
+
 /**
  * Base
  */
@@ -27,9 +36,15 @@ const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
 // Debug
-gui.add(mesh.position, "x", -3, 3, 0.01);
-gui.add(mesh.position, "y", -3, 3, 0.01);
-gui.add(mesh.position, "z", -3, 3, 0.01);
+gui.add(mesh.position, "y").min(-3).max(3).step(0.1).name("elevation");
+
+gui.add(mesh, "visible");
+
+gui.add(material, "wireframe");
+
+gui.addColor(material, "color");
+
+gui.add(params, "spin");
 
 /**
  * Sizes
