@@ -46,6 +46,12 @@ gui.addColor(material, "color");
 
 gui.add(params, "spin");
 
+window.addEventListener("keydown", (e) => {
+  if (e.key === "h") {
+    gui._hidden ? gui.show() : gui.hide();
+  }
+});
+
 /**
  * Sizes
  */
